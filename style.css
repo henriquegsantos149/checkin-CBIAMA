@@ -336,7 +336,7 @@ body {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .chat-header {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
     }
 
