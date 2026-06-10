@@ -13,20 +13,20 @@ const initialMessages = [
 ];
 
 const questionSteps = [
-    { key: "nome", text: "Para começarmos, qual o seu nome completo?", type: "text", placeholder: "Digite o seu nome completo" },
-    { key: "nome_cracha", text: "Prazer, {nome}! Qual nome deseja colocar no crachá do evento?", type: "text", placeholder: "Ex: João Silva" },
-    { key: "email", text: "Excelente! Qual o seu e-mail?", type: "text", placeholder: "Digite o seu e-mail" },
-    { key: "telefone", text: "Perfeito! Agora qual o seu telefone? (Pode ser Whatsapp, não esqueça o DDD)", type: "text", placeholder: "Ex: 11999999999" },
-    { key: "genero", text: "Qual é o seu gênero?", type: "select", options: ["Feminino", "Masculino", "Não binário", "Prefiro não especificar", "Outro"], placeholder: "Selecione seu gênero" },
-    { key: "nascimento", text: "Qual a sua data de nascimento?", type: "date" },
-    { key: "escolaridade", text: "Qual a sua escolaridade?", type: "select", options: ["Doutorado", "Mestrado", "Especialização", "Ensino superior completo (bacharelado, licenciatura ou tecnólogo)", "Ensino superior incompleto", "Ensino técnico", "Ensino médio", "Ensino fundamental"], placeholder: "Selecione sua escolaridade" },
-    { key: "formacao", text: "Qual sua formação ou estudo?", type: "select", options: ["Engenharia Ambiental", "Engenharia Cartográfica", "Agrária ou Florestal", "Biologia", "Geografia", "Geologia", "Ciências Ambientais", "Outro"], placeholder: "Selecione sua formação" },
-    { key: "momento_profissional", text: "Qual o seu momento profissional?", type: "select", options: ["CLT", "Funcionário Público", "Estudante", "Aposentado", "Empresário", "Autônomo", "Outro"], placeholder: "Selecione" },
-    { key: "cargo_empresa", text: "Qual o seu cargo e em qual empresa você trabalha?", type: "text", placeholder: "Digite seu cargo e empresa" },
-    { key: "renda", text: "Qual a sua renda mensal atual?", type: "select", options: ["Até R$2.000", "De R$2.000 a R$4.000", "De R$4.000 a R$5.000", "De R$5.000 a R$10.000", "De R$10.000 a R$20.000", "Acima de R$20.000", "Prefiro não responder"], placeholder: "Selecione sua renda" },
-    { key: "tempo_setor", text: "Há quanto tempo você atua no setor ambiental?", type: "select", options: ["Menos de 1 ano", "De 3 a 5 anos", "De 5 a 10 anos", "Há mais de 10 anos"], placeholder: "Selecione o tempo" },
-    { key: "restricao_alimentar", text: "Você possui alguma restrição alimentar ou alergia? Isso é importante para o Coffee Break", type: "select", options: ["Não possuo restrições", "Vegetariano(a)", "Vegano(a)", "Intolerância à lactose", "Sem glúten (Celíaco)", "Alergia a castanhas/amendoim"], placeholder: "Selecione" },
-    { key: "termo_aceite", text: "Leia e confirme o termo abaixo, ele é essencial para a sua participação no Congresso:<br><br><i>Autorizo o uso da minha imagem, voz e/ou depoimento captados durante o Congresso Brasileiro de Mapeamento e Inteligência Geográfica pela Ambiental Pro, para fins institucionais, promocionais e educacionais, sem ônus e por prazo indeterminado.</i>", type: "checkbox", label: "Li e concordo com os termos acima." }
+    { key: "nome", text: "Para começarmos a preparar tudo, como posso te chamar? Digita seu nome completo aqui embaixo, por favor.", type: "text", placeholder: "Digite o seu nome completo" },
+    { key: "nome_cracha", text: "Prazer em te conhecer, {nome}! E me diz uma coisa, no seu crachá do evento, como você prefere que a gente te chame?", type: "text", placeholder: "Ex: João Silva" },
+    { key: "email", text: "Anotado! Para te enviar seu ingresso e as atualizações importantes do evento, qual é o seu melhor e-mail?", type: "text", placeholder: "Digite o seu e-mail" },
+    { key: "telefone", text: "Show! E se a nossa equipe precisar te mandar uma mensagem rápida, qual é o seu WhatsApp? (Não esquece de colocar o DDD, tá?)", type: "text", placeholder: "Ex: 11999999999" },
+    { key: "genero", text: "Agora, para a gente te conhecer um pouco melhor: com qual gênero você mais se identifica?", type: "select", options: ["Feminino", "Masculino", "Não binário", "Prefiro não especificar", "Outro"], placeholder: "Selecione seu gênero" },
+    { key: "nascimento", text: "Legal! E em que dia, mês e ano você nasceu?", type: "date" },
+    { key: "escolaridade", text: "Mudando um pouquinho de assunto, como está a sua jornada de estudos? Qual a sua escolaridade atual?", type: "select", options: ["Doutorado", "Mestrado", "Especialização", "Ensino superior completo (bacharelado, licenciatura ou tecnólogo)", "Ensino superior incompleto", "Ensino técnico", "Ensino médio", "Ensino fundamental"], placeholder: "Selecione sua escolaridade" },
+    { key: "formacao", text: "Que bacana! E qual é a sua área do coração? Seleciona a sua formação principal aqui.", type: "select", options: ["Engenharia Ambiental", "Engenharia Cartográfica", "Agrária ou Florestal", "Biologia", "Geografia", "Geologia", "Ciências Ambientais", "Outro"], placeholder: "Selecione sua formação" },
+    { key: "momento_profissional", text: "Muito bom! E profissionalmente falando, em que momento você está agora?", type: "select", options: ["CLT", "Funcionário Público", "Estudante", "Aposentado", "Empresário", "Autônomo", "Outro"], placeholder: "Selecione" },
+    { key: "cargo_empresa", text: "Maravilha! Compartilha com a gente: qual é o seu cargo atual e em qual empresa você trabalha?", type: "text", placeholder: "Digite seu cargo e empresa" },
+    { key: "renda", text: "Essa pergunta é para entender melhor o perfil da nossa comunidade para prepararmos conteúdos sob medida: em qual faixa de renda você se encaixa hoje?", type: "select", options: ["Até R$2.000", "De R$2.000 a R$4.000", "De R$4.000 a R$5.000", "De R$5.000 a R$10.000", "De R$10.000 a R$20.000", "Acima de R$20.000", "Prefiro não responder"], placeholder: "Selecione sua renda" },
+    { key: "tempo_setor", text: "Estamos quase lá! Há quanto tempo você atua ou estuda no setor ambiental?", type: "select", options: ["Menos de 1 ano", "De 3 a 5 anos", "De 5 a 10 anos", "Há mais de 10 anos"], placeholder: "Selecione o tempo" },
+    { key: "restricao_alimentar", text: "Para o nosso Coffee Break ser perfeito para todo mundo, me avisa: você tem alguma restrição alimentar ou alergia?", type: "select", options: ["Não possuo restrições", "Vegetariano(a)", "Vegano(a)", "Intolerância à lactose", "Sem glúten (Celíaco)", "Alergia a castanhas/amendoim"], placeholder: "Selecione" },
+    { key: "termo_aceite", text: "E por último, mas super importante: dá uma lida rápida nesse termo para confirmarmos a sua participação:<br><br><i>Autorizo o uso da minha imagem, voz e/ou depoimento captados durante o Congresso Brasileiro de Mapeamento e Inteligência Geográfica pela Ambiental Pro, para fins institucionais, promocionais e educacionais, sem ônus e por prazo indeterminado.</i>", type: "checkbox", label: "Li e concordo com os termos acima." }
 ];
 
 let userData = {};
