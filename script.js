@@ -4,7 +4,7 @@ const userInput = document.getElementById('chat-response-field');
 const sendButton = document.getElementById('send-button');
 
 // Substitua esta URL pelo link do seu Google Apps Script (Executar como Web App)
-const APPS_SCRIPT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzTaYQ0Uh40MevHqyqfS3gjlyNis56d3uTWuykYB-Nk4XK9KtHU5R9kcDraw4o6ozLb/exec';
+const APPS_SCRIPT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbweL2D91roBYKIwRPuxDl5oMaUFrWaJhDd0twt-ze5PdOpZpgELkmAE95t0Qza6tnFuag/exec';
 
 const initialMessages = [
     "Faaaala, tudo certo? Sou o <b>Agente Pro</b> e estou aqui para fazer o seu check-in no Congresso Brasileiro de Inteligência Artificial aplicada ao Meio Ambiente. Estamos super felizes com sua presença, este será um evento muito especial e espero que você aproveite bastante!",
