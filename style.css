@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #010404;
+    --bg-color: #041010;
     --text-primary: #E6E8E6;
     --text-secondary: #a0a0a0;
     --brand-green: #6FB03A;
@@ -47,7 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid var(--msg-bot-border);
-    background-color: rgba(1, 4, 4, 0.8);
+    background-color: rgba(4, 16, 16, 0.8);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
