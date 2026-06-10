@@ -15,7 +15,7 @@ const initialMessages = [
 const questionSteps = [
     { key: "nome", text: "Para começarmos a preparar tudo, como posso te chamar? Digita seu nome completo aqui embaixo, por favor.", type: "text", placeholder: "Digite o seu nome completo" },
     { key: "nome_cracha", text: "Prazer em te conhecer, {nome}! E me diz uma coisa, no seu crachá do evento, como você prefere que a gente te chame?", type: "text", placeholder: "Ex: João Silva" },
-    { key: "email", text: "Anotado! Para te enviar seu ingresso e as atualizações importantes do evento, qual é o seu melhor e-mail?", type: "text", placeholder: "Digite o seu e-mail" },
+    { key: "email", text: "Anotado! Para te enviarmos todas as informações importantes sobre o evento, qual é o seu melhor e-mail?", type: "text", placeholder: "Digite o seu e-mail" },
     { key: "telefone", text: "Show! E se a nossa equipe precisar te mandar uma mensagem rápida, qual é o seu WhatsApp? (Não esquece de colocar o DDD, tá?)", type: "text", placeholder: "Ex: 11999999999" },
     { key: "genero", text: "Agora, para a gente te conhecer um pouco melhor: com qual gênero você mais se identifica?", type: "select", options: ["Feminino", "Masculino", "Não binário", "Prefiro não especificar", "Outro"], placeholder: "Selecione seu gênero" },
     { key: "nascimento", text: "Legal! E em que dia, mês e ano você nasceu?", type: "date" },
