@@ -13,16 +13,50 @@ const initialMessages = [
 ];
 
 const questionSteps = [
-    { key: "nome", text: "Para começarmos a preparar tudo, como posso te chamar? Digita seu nome completo aqui embaixo, por favor.", type: "text", placeholder: "Digite o seu nome completo" },
-    { key: "nome_cracha", text: "Prazer em te conhecer, {nome}! E me diz uma coisa, no seu crachá do evento, como você prefere que a gente te chame?", type: "text", placeholder: "Ex: João Silva" },
-    { key: "email", text: "Anotado! Para te enviarmos todas as informações importantes sobre o evento, qual é o seu melhor e-mail?", type: "text", placeholder: "Digite o seu e-mail" },
-    { key: "telefone", text: "Show! E se a nossa equipe precisar te mandar uma mensagem rápida, qual é o seu WhatsApp? (Não esquece de colocar o DDD, tá?)", type: "text", placeholder: "Ex: 11999999999" },
+    { 
+        key: "nome", 
+        text: "Para começarmos a preparar tudo, como posso te chamar? Digita seu nome completo aqui embaixo, por favor.", 
+        type: "text", 
+        placeholder: "Digite o seu nome completo",
+        validate: (val) => val.trim().split(/\s+/).length >= 2,
+        errorMessage: "Por favor, digite seu nome e sobrenome para continuarmos.",
+        maxLength: 100
+    },
+    { 
+        key: "nome_cracha", 
+        text: "Prazer em te conhecer, {nome}! E me diz uma coisa, no seu crachá do evento, como você prefere que a gente te chame?", 
+        type: "text", 
+        placeholder: "Ex: João Silva",
+        maxLength: 30
+    },
+    { 
+        key: "email", 
+        text: "Anotado! Para te enviarmos todas as informações importantes sobre o evento, qual é o seu melhor e-mail?", 
+        type: "email", 
+        placeholder: "Digite o seu e-mail",
+        validate: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+        errorMessage: "Ops, parece que esse e-mail não é válido. Pode verificar e digitar novamente?"
+    },
+    { 
+        key: "telefone", 
+        text: "Show! E se a nossa equipe precisar te mandar uma mensagem rápida, qual é o seu WhatsApp? (Não esquece de colocar o DDD, tá?)", 
+        type: "tel", 
+        placeholder: "Ex: (11) 99999-9999",
+        validate: (val) => /^\d{10,11}$/.test(val.replace(/\D/g, '')),
+        errorMessage: "Preciso que você informe o número com o DDD, contendo 10 ou 11 dígitos. Tenta de novo?"
+    },
     { key: "genero", text: "Agora, para a gente te conhecer um pouco melhor: com qual gênero você mais se identifica?", type: "select", options: ["Feminino", "Masculino", "Não binário", "Prefiro não especificar", "Outro"], placeholder: "Selecione seu gênero" },
     { key: "nascimento", text: "Legal! E em que dia, mês e ano você nasceu?", type: "date" },
     { key: "escolaridade", text: "Mudando um pouquinho de assunto, como está a sua jornada de estudos? Qual a sua escolaridade atual?", type: "select", options: ["Doutorado", "Mestrado", "Especialização", "Ensino superior completo (bacharelado, licenciatura ou tecnólogo)", "Ensino superior incompleto", "Ensino técnico", "Ensino médio", "Ensino fundamental"], placeholder: "Selecione sua escolaridade" },
     { key: "formacao", text: "Que bacana! E qual é a sua área do coração? Seleciona a sua formação principal aqui.", type: "select", options: ["Engenharia Ambiental", "Engenharia Cartográfica", "Agrária ou Florestal", "Biologia", "Geografia", "Geologia", "Ciências Ambientais", "Outro"], placeholder: "Selecione sua formação" },
     { key: "momento_profissional", text: "Muito bom! E profissionalmente falando, em que momento você está agora?", type: "select", options: ["CLT", "Funcionário Público", "Estudante", "Aposentado", "Empresário", "Autônomo", "Outro"], placeholder: "Selecione" },
-    { key: "cargo_empresa", text: "Maravilha! Compartilha com a gente: qual é o seu cargo atual e em qual empresa você trabalha?", type: "text", placeholder: "Digite seu cargo e empresa" },
+    { 
+        key: "cargo_empresa", 
+        text: "Maravilha! Compartilha com a gente: qual é o seu cargo atual e em qual empresa você trabalha?", 
+        type: "text", 
+        placeholder: "Digite seu cargo e empresa",
+        maxLength: 100
+    },
     { key: "renda", text: "Essa pergunta é para entender melhor o perfil da nossa comunidade para prepararmos conteúdos sob medida: em qual faixa de renda você se encaixa hoje?", type: "select", options: ["Até R$2.000", "De R$2.000 a R$4.000", "De R$4.000 a R$5.000", "De R$5.000 a R$10.000", "De R$10.000 a R$20.000", "Acima de R$20.000", "Prefiro não responder"], placeholder: "Selecione sua renda" },
     { key: "tempo_setor", text: "Estamos quase lá! Há quanto tempo você atua ou estuda no setor ambiental?", type: "select", options: ["Menos de 1 ano", "De 3 a 5 anos", "De 5 a 10 anos", "Há mais de 10 anos"], placeholder: "Selecione o tempo" },
     { key: "restricao_alimentar", text: "Para o nosso Coffee Break ser perfeito para todo mundo, me avisa: você tem alguma restrição alimentar ou alergia?", type: "select", options: ["Não possuo restrições", "Vegetariano(a)", "Vegano(a)", "Intolerância à lactose", "Sem glúten (Celíaco)", "Alergia a castanhas/amendoim"], placeholder: "Selecione" },
@@ -253,8 +287,16 @@ function showInputArea(step) {
             userInput.placeholder = "Digite sua resposta...";
         }
 
+        userInput.type = (step && (step.type === 'email' || step.type === 'tel')) ? step.type : 'text';
+        if (step && step.maxLength) {
+            userInput.maxLength = step.maxLength;
+        } else {
+            userInput.removeAttribute('maxlength');
+        }
+
         userInput.disabled = false;
-        sendButton.disabled = false;
+        sendButton.disabled = true;
+        sendButton.style.opacity = '0.7';
         userInput.focus();
     }
 
@@ -281,7 +323,9 @@ sendButton.addEventListener('click', () => {
 userInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         e.preventDefault();
-        submitAnswer(userInput.value);
+        if (!sendButton.disabled) {
+            submitAnswer(userInput.value);
+        }
     }
 });
 
@@ -297,8 +341,16 @@ async function submitAnswer(rawAnswer) {
     disableInput();
 
     if (isAskingQuestions && currentStepIndex < questionSteps.length) {
-        // Salva a resposta do passo atual
         const currentStep = questionSteps[currentStepIndex];
+
+        // Validação
+        if (currentStep.validate && !currentStep.validate(answer)) {
+            await processBotMessage(currentStep.errorMessage || "Resposta inválida. Tente novamente.");
+            showInputArea(currentStep);
+            return;
+        }
+
+        // Salva a resposta do passo atual
         userData[currentStep.key] = answer;
 
         currentStepIndex++;
@@ -380,9 +432,29 @@ window.addEventListener('load', () => {
 
 // Atualiza o estado do botão dependendo do input
 userInput.addEventListener('input', () => {
+    // Aplica máscara de telefone se for o passo de telefone
+    if (isAskingQuestions && currentStepIndex < questionSteps.length) {
+        const currentStep = questionSteps[currentStepIndex];
+        if (currentStep.type === 'tel') {
+            let val = userInput.value.replace(/\D/g, '');
+            if (val.length > 11) val = val.slice(0, 11);
+            
+            if (val.length > 10) {
+                val = val.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+            } else if (val.length > 6) {
+                val = val.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+            } else if (val.length > 2) {
+                val = val.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+            }
+            userInput.value = val;
+        }
+    }
+
     if (userInput.value.trim().length > 0) {
         sendButton.style.opacity = '1';
+        sendButton.disabled = false;
     } else {
         sendButton.style.opacity = '0.7';
+        sendButton.disabled = true;
     }
 });
