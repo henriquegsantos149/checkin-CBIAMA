@@ -18,7 +18,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
@@ -56,8 +57,12 @@ body {
 }
 
 .brand-logo {
-    height: 100px;
+    height: 80px;
     width: auto;
+}
+
+.logo-mobile {
+    display: none;
 }
 
 .cbiama-logo {
@@ -269,7 +274,8 @@ body {
 }
 
 /* Custom Inputs for Select, Date and Checkbox */
-.custom-input-container, .custom-checkbox-container {
+.custom-input-container,
+.custom-checkbox-container {
     display: flex;
     gap: 8px;
     width: 100%;
@@ -277,7 +283,8 @@ body {
     justify-content: flex-end;
 }
 
-.custom-select, .custom-date {
+.custom-select,
+.custom-date {
     flex-grow: 1;
     background-color: #555555;
     color: white;
@@ -290,7 +297,8 @@ body {
     max-width: 70%;
 }
 
-.custom-select:focus, .custom-date:focus {
+.custom-select:focus,
+.custom-date:focus {
     border-color: #777;
 }
 
@@ -345,7 +353,15 @@ body {
     }
 
     .brand-logo {
-        height: 80px;
+        height: 60px;
+    }
+
+    .logo-desktop {
+        display: none;
+    }
+
+    .logo-mobile {
+        display: block;
     }
 
     .cbiama-logo {
