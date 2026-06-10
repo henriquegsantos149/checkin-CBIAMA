@@ -7,8 +7,8 @@ const sendButton = document.getElementById('send-button');
 const APPS_SCRIPT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbweL2D91roBYKIwRPuxDl5oMaUFrWaJhDd0twt-ze5PdOpZpgELkmAE95t0Qza6tnFuag/exec';
 
 const initialMessages = [
-    "Faaaala, tudo bem por aí? 👋 Sou o <b>Agente Pro</b> e serei o responsável por fazer o seu check-in oficial no Congresso Brasileiro de Inteligência Artificial aplicada ao Meio Ambiente. Que alegria ter você com a gente!",
-    "Estamos preparando um evento inesquecível! Mas antes de pegar seus dados, deixa eu te contar rapidinho: a Ambiental Pro é muito mais que uma instituição de ensino. Somos um ecossistema do setor ambiental que transforma conhecimento em diferencial competitivo, e conexões em negócios estratégicos. 🌍",
+    "Faaaala, tudo bem por aí? 👋 Sou o <b>Agente Pro</b> e serei o responsável por fazer o seu check-in oficial no <b>Congresso Brasileiro de Inteligência Artificial aplicada ao Meio Ambiente</b>. Que alegria ter você com a gente!",
+    "Estamos preparando um evento inesquecível! Mas antes de pegar seus dados, deixa eu te contar rapidinho: a Ambiental Pro é muito mais que uma instituição de ensino. Somos um <b>ecossistema do setor ambiental que transforma conhecimento em diferencial competitivo, e conexões em negócios estratégicos</b>. 🌍",
     "Para você ter ideia, já impactamos a carreira de mais de <b>80 mil alunos</b> através dos nossos cursos de extensão e das nossas 5 pós-graduações (todas reconhecidas pelo MEC). 🚀 Bora começar o seu check-in?"
 ];
 
