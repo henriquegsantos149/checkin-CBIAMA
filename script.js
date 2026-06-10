@@ -261,19 +261,16 @@ function showInputArea(step) {
         label.appendChild(checkbox);
         label.appendChild(span);
 
-        const btn = document.createElement('button');
-        btn.className = 'choice-btn send-custom-btn';
-        btn.textContent = 'Confirmar';
-        btn.disabled = true;
-
         checkbox.addEventListener('change', () => {
-            btn.disabled = !checkbox.checked;
+            if (checkbox.checked) {
+                // Pequeno atraso para o usuário ver que marcou a caixa
+                setTimeout(() => {
+                    submitAnswer("Sim");
+                }, 300);
+            }
         });
 
-        btn.onclick = () => submitAnswer("Sim"); // Sempre que confirmar é "Sim"
-
         checkContainer.appendChild(label);
-        checkContainer.appendChild(btn);
         inputContainer.insertBefore(checkContainer, inputContainer.firstChild);
 
     } else {
