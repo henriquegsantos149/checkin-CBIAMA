@@ -60,6 +60,10 @@ body {
     width: auto;
 }
 
+.cbiama-logo {
+    height: 130px;
+}
+
 .chat-history {
     flex-grow: 1;
     padding: 30px 20px;
@@ -342,6 +346,10 @@ body {
 
     .brand-logo {
         height: 80px;
+    }
+
+    .cbiama-logo {
+        height: 104px;
     }
 
     .chat-history {
